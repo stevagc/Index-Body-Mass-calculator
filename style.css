@@ -1,0 +1,118 @@
+
+    body {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+
+    #calculator-container {
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    #input-container, #result-container {
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 8px;
+    }
+
+    input, input[type="range"], button {
+        width: calc(100% - 16px);
+        padding: 10px;
+        margin-bottom: 16px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    input[type="range"] {
+        margin-bottom: 20px;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+
+    th, td {
+        padding: 10px;
+        border: 1px solid #fff;
+        color: #000;
+    }
+
+    th {
+        background-color: #6EC1E4;
+        color: #fff;
+    }
+
+    #result {
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .Underweight, .NormalWeight, .Overweight, .Obese, .SevereObesity, .ExtremeObesity {
+        background-color: #fff; 
+        color: #000; 
+    }
+
+    .highlighted {
+        background-color: #6ec1e4 !important;
+    }
+
+    .Underweight.highlighted {
+        background-color: #81c784 !important; 
+    }
+
+    .NormalWeight.highlighted {
+        background-color: #a5d6a7 !important; 
+    }
+
+    .Overweight.highlighted {
+        background-color: #ffcc80 !important; 
+    }
+
+    .Obese.highlighted {
+        background-color: #ff8a65 !important; 
+    }
+
+    .SevereObesity.highlighted {
+        background-color: #e57373 !important; 
+    }
+
+    .ExtremeObesity.highlighted {
+        background-color: #d32f2f !important; 
+    }
+
+    button {
+        background-color: #6EC1E4;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #6EC1E4;
+    }
+
+    @media(min-width: 600px) {
+        #input-container, #result-container {
+            width: 48%;
+        }
+    }

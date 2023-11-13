@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="sr-Latn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script>
+        function calculateBMI() {
+            var weight = parseFloat(document.getElementById('weight').value);
+            var height = parseFloat(document.getElementById('height').value);
+
+            if (!isNaN(weight) && !isNaN(height) && weight > 0 && height > 0) {
+                var bmi = weight / (height * height);
+                document.getElementById('result').innerText = 'Vaš ITM: ' + bmi.toFixed(2);
+
+                // Highlight the row based on BMI category
+                highlightCategory(classifyBMI(bmi));
+
+            } else {
+                document.getElementById('result').innerText = 'Please enter valid values';
+            }
+        }
+
+        function classifyBMI(bmi) {
+            if (bmi < 18.5) {
+                return 'Underweight';
+            } else if (bmi >= 18.5 && bmi < 24.9) {
+                return 'NormalWeight';
+            } else if (bmi >= 25 && bmi < 29.9) {
+                return 'Overweight';
+            } else if (bmi >= 30 && bmi < 34.9) {
+                return 'Obese';
+            } else if (bmi >= 35 && bmi < 39.9) {
+                return 'SevereObesity';
+            } else {
+                return 'ExtremeObesity';
+            }
+        }
+
+        function highlightCategory(category) {
+            var rows = document.querySelectorAll('tr');
+            rows.forEach(row => row.classList.remove('highlighted'));
+
+            var row = document.getElementById(category);
+            if (row) {
+                row.classList.add('highlighted');
+            }
+        }
+
+        function updateWeight(value) {
+            document.getElementById('weight').value = value;
+            calculateBMI(); 
+        }
+
+        function updateHeight(value) {
+            document.getElementById('height').value = value;
+            calculateBMI(); 
+        }
+    </script>
+    <title>Calculate your IBM – ITM</title>
+</head>
+<body>
+    <div id="calculator-container">
+        <div id="input-container">
+            <h2>Calculate your IBM – ITM</h2>
+            <label for="weight">Weight (kg)</label>
+            <input type="number" id="weight" placeholder="Enter your weight" required>
+            <input type="range" min="0" max="200" value="0" step="1" oninput="updateWeight(this.value)">
+            <label for="height">Visina (m):</label>
+            <input type="number" id="height" placeholder="Enter your height (eg 1.80m)" required>
+            <input type="range" min="0" max="3" value="0" step="0.01" oninput="updateHeight(this.value)">
+            <button onclick="calculateBMI()">Calculate IBM</button>
+        </div>
+        <div id="result-container">
+            <h2>IBM result</h2>
+            <table id="resultTable">
+                <tr>
+                    <th>IBM</th>
+                    <th>Category</th>
+                </tr>
+                <!-- Example rows for each category -->
+                <tr id="Underweight" class="Underweight">
+                    <td>18.00</td>
+                    <td>Underweight</td>
+                </tr>
+                <tr id="NormalWeight" class="NormalWeight">
+                    <td>22.00</td>
+                    <td>NormalWeight</td>
+                </tr>
+                <tr id="Overweight" class="Overweight">
+                    <td>26.00</td>
+                    <td>Overweight</td>
+                </tr>
+                <tr id="Obese" class="Obese">
+                    <td>30.00</td>
+                    <td>Obese</td>
+                </tr>
+                <tr id="SevereObesity" class="SevereObesity">
+                    <td>35.00</td>
+                    <td>SevereObesity</td>
+                </tr>
+                <tr id="ExtremeObesity" class="ExtremeObesity">
+                    <td>40.00</td>
+                    <td>ExtremeObesity</td>
+                </tr>
+            </table>
+            <div id="result"></div>
+        </div>
+    </div>
+</body>
+</html>
