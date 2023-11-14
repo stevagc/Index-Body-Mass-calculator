@@ -1,5 +1,5 @@
 BMI Calculator
-A simple and responsive Body Mass Index (BMI) calculator implemented in HTML, CSS, and JavaScript. This web application allows users to input their weight and height, calculates their BMI, and provides a corresponding BMI category.
+A simple and responsive Body Mass Index (BMI) calculator implemented in HTML and CSS. This web application allows users to input their weight and height, calculates their BMI, and provides a corresponding BMI category.
 
 Features:
 Easy to Use: Straightforward user interface for quick BMI calculation.
